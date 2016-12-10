@@ -1,0 +1,73 @@
+
+$darkgray: #666;
+
+$layer-base: 0;
+$layer-below: 10;
+$layer-default: 20;
+$layer-above: 30;
+
+@mixin serif {
+  font-family: 'Libre Baskerville', serif;
+}
+
+@mixin sans-serif {
+  font-family: 'Catamaran', sans-serif;
+}
+
+@mixin title {
+  font-family: 'PT Sans Caption', sans-serif;
+  text-transform: uppercase;
+}
+
+@mixin vertical-gradient($top-color, $bottom-color, $top-start: 0%, $bottom-end: 100%) {
+	background-image: -moz-linear-gradient(   top,       $top-color $top-start, $bottom-color $bottom-end);
+	background-image: -webkit-linear-gradient(top,       $top-color $top-start, $bottom-color $bottom-end);
+	background-image: linear-gradient(        to bottom, $top-color $top-start, $bottom-color $bottom-end);
+}
+
+@mixin scrolled {
+  html.scroll & {
+    @content;
+  }
+}
+
+@mixin unscrolled {
+  html.no-scroll & {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 768px) {
+    & {
+      @content;
+    }
+  }
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  font-size: 90%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5
+{
+  margin: 0;
+}
+
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1.0rem; }
+h5 { font-size: 0.9rem; }
+
