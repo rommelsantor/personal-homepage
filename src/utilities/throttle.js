@@ -7,3 +7,5 @@ const throttle = waitMs => func => (...args) =>
 
 export default throttle
 
+export const minThrottle = throttle(5)
+

@@ -45,6 +45,14 @@ $layer-above: 30;
   }
 }
 
+@mixin phone {
+  @media (max-width: 599px) {
+    & {
+      @content;
+    }
+  }
+}
+
 html {
   padding: 0;
   margin: 0;
@@ -70,4 +78,14 @@ h2 { font-size: 1.4rem; }
 h3 { font-size: 1.2rem; }
 h4 { font-size: 1.0rem; }
 h5 { font-size: 0.9rem; }
+
+a {
+  &,
+  &:hover,
+  &:active,
+  &:visited
+  {
+    text-decoration: none;
+  }
+}
 

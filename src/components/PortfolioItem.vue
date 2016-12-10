@@ -1,35 +1,24 @@
 <style scoped lang="scss">
 @import '../css/global.scss';
 
-.portfolio-item {
-  z-index: $layer-default;
-  border: 1px solid #ccc;
-  background: #fff;
-  display: inline-block;
-  min-height: 4em;
-
-  width: 30vw;
-  margin: 1.5vw;
-
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
 </style>
 
 <template>
   <div class="portfolio-item" :style="bgstyle" data-ar="0.68125">
-    {{ id }}<br>
-    {{ title }}<br>
-    {{ desc }}
+    <div class="scrim">
+      <a :href="'http://' + url" target="_blank">
+        <b>{{ title }}</b>
+        <p>
+          {{ desc }}
+        </p>
+      </span>
+    </div>
   </div>
 </template>
 
 <script>
 import arPersist from '../utilities/arPersist'
-import throttle from '../utilities/throttle'
-
-const minThrottle = throttle(5)
+import { minThrottle } from '../utilities/throttle'
 
 import $ from 'jquery'
 

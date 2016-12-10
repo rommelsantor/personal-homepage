@@ -14,12 +14,10 @@
 </template>
 
 <script>
-import throttle from './utilities/throttle'
+import { minThrottle } from './utilities/throttle'
 
 import './css/global.scss'
 import $ from 'jquery'
-
-const minThrottle = throttle(5)
 
 import SiteHeader from './components/SiteHeader'
 import Billboard from './components/Billboard'

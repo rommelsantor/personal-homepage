@@ -9,15 +9,15 @@ header {
   @include vertical-gradient(rgba(0, 0, 0, 0.65), #eee, -50%, 120%);
   transition: all 400ms;
 
-  z-index: $layer-above;
-
-  @include scrolled {
-    opacity: 0.75;
-
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+
+  z-index: $layer-above;
+
+  @include scrolled {
+    opacity: 0.75;
 
     &:hover {
       opacity: 1;
@@ -33,9 +33,11 @@ header {
     transition: all 400ms;
 
     @include scrolled {
+      /*
       font-size: 1.4rem;
       line-height: 1.5rem;
       letter-spacing: 0;
+      */
     }
   }
 
@@ -46,8 +48,10 @@ header {
     transition: all 400ms;
 
     @include scrolled {
+      /*
       font-size: 1.2rem;
       line-height: 1.5rem;
+      */
     }
   }
 
@@ -64,7 +68,7 @@ header {
 </style>
 
 <template>
-  <header>
+  <header id="site-header">
     <h1>Rommel Santor</h1>
     <h2>Web Developer</h2>
   </header>
