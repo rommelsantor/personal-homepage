@@ -1,18 +1,15 @@
 <style scoped lang="scss">
 @import '../css/global.scss';
-
 </style>
 
 <template>
   <div class="portfolio-item" :style="bgstyle" data-ar="0.68125">
-    <div class="scrim">
-      <a :href="'http://' + url" target="_blank">
-        <b>{{ title }}</b>
-        <p>
-          {{ desc }}
-        </p>
-      </span>
-    </div>
+    <a :href="'http://' + url" target="_blank" class="scrim">
+      <b>{{ title }}</b>
+      <p>
+        {{ desc }}
+      </p>
+    </a>
   </div>
 </template>
 
