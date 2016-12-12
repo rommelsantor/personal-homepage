@@ -29,7 +29,7 @@
   }
   @keyframes shrink-in {
     0% {
-      transform: scale(0) translateY(-100vh);
+      transform: scale(0) translateY(100vh);
       opacity: 0;
     }
     50% {
@@ -59,7 +59,7 @@
     <site-header></site-header>
 
     <div id="route-container">
-      <transition name="shrink">
+      <transition name="shrink" mode="in-out">
         <router-view></router-view>
       </transition>
     </div>

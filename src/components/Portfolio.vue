@@ -3,6 +3,21 @@
 
 #portfolio {
   text-align: center;
+
+  p {
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+
+    @include serif;
+    line-height: 1.5;
+    max-width: 80%;
+    margin: 0 auto 1em;
+
+    @include phone {
+      font-size: 0.9rem;
+      max-width: 90%;
+    }
+  }
 }
 </style>
 
@@ -116,6 +131,8 @@
       }
 
       @include phone {
+        font-size: 0.95em;
+        line-height: 1.5;
       }
     }
   }
@@ -124,6 +141,11 @@
 
 <template>
   <section id="portfolio">
+    <p>
+      This is a list in alphabetical order of some recent and/or notable projects.
+      Most of them I developed single-handedly; for the rest I was principal developer.
+    </p>
+
     <portfolio-item v-for="item in portfoliolist" :id="item.id" :title="item.title" :desc="item.desc" :url="item.url || item.id"></portfolio-item>
   </section>
 </template>
@@ -208,7 +230,7 @@ export default {
         {
           id: 'onedown.io',
           title: 'One Down',
-          desc: 'One-time download private file relay service. Still barebones with many more features yet to be implemented.'
+          desc: 'One-time-download private file relay service. Still barebones with many more features yet to be implemented.'
         },
         {
           id: 'videosift.com',

@@ -36,6 +36,10 @@
           content: " // ";
           margin: 0 1em;
           opacity: 0.3;
+
+          @include phone {
+            margin: 0 0.5em;
+          }
         }
 
         &:first-child:before {
@@ -96,7 +100,7 @@
           <router-link to="/" exact>Portfolio</router-link>
         </li>
         <li>
-          <router-link to="/about">About</router-link>
+          <router-link to="/about">About Me</router-link>
         </li>
         <li>
           <router-link to="/contact">Contact</router-link>

@@ -13,40 +13,47 @@
     border-bottom: 1px solid #444;
     box-shadow: 0 5px 10px rgba(68, 68, 68, 0.4);
     padding: 0.5em;
-    @include vertical-gradient(rgba(68, 68, 68, 0.5), rgba(38, 38, 38, 0.85), -50%, 120%);
+    background-color: #000;
+    background: radial-gradient(at 50% -50%, rgba(255, 255, 255, 1) -75%, rgba(0, 0, 0, 1));
     transition: all 400ms;
 
     @include scrolled {
+      background-color: transparent;
+      background: radial-gradient(at 50% -50%, rgba(255, 255, 255, 1) -75%, rgba(0, 0, 0, 0.9));
     }
 
     h1 {
       @include title;
       color: white;
       text-shadow: 0 1px 0 black;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       line-height: 2rem;
-      transition: all 400ms;
+      transition: all 500ms;
 
       @include scrolled {
         /*
         font-size: 1.4rem;
         line-height: 1.5rem;
-        letter-spacing: 0;
         */
+        letter-spacing: 0;
       }
     }
 
     h2 {
       @include title;
-      text-shadow: 0 1px 0 rgba(100, 100, 100, 0.6);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+      letter-spacing: 0.5px;
       line-height: 2rem;
-      transition: all 400ms;
+      transition: all 500ms;
+      color: #888;
 
       @include scrolled {
+        color: #888;
         /*
         font-size: 1.2rem;
         line-height: 1.5rem;
         */
+        letter-spacing: 0;
       }
     }
 
@@ -80,6 +87,10 @@
           content: " // ";
           margin: 0 1em;
           opacity: 0.5;
+
+          @include phone {
+            margin: 0 0.3em;
+          }
         }
 
         &:first-child:before {
@@ -124,7 +135,7 @@
           <router-link to="/" exact>Portfolio</router-link>
         </li>
         <li>
-          <router-link to="/about">About</router-link>
+          <router-link to="/about">About Me</router-link>
         </li>
         <li>
           <router-link to="/contact">Contact</router-link>

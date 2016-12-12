@@ -69,6 +69,14 @@ $layer-above: 30;
   }
 }
 
+@mixin desktop {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    & {
+      @content;
+    }
+  }
+}
+
 @mixin tablet {
   @media (min-width: 600px) and (max-width: 768px) {
     & {
@@ -129,6 +137,12 @@ a {
 ul,
 ol
 {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+p {
   margin: 0;
   padding: 0;
 }

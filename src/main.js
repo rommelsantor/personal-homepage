@@ -8,15 +8,28 @@ Vue.use(VueRouter)
 
 import Portfolio from './components/Portfolio'
 import About from './components/About'
+import Contact from './components/Contact'
 
 const routes = [
   { path: '/portfolio', component: Portfolio, alias: '/' },
-  { path: '/about', component: About }
+  { path: '/about', component: About },
+  { path: '/contact', component: Contact }
 ]
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else if (to.hash) {
+      return {
+        selector: to.hash
+      }
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 /* eslint-disable no-new */
