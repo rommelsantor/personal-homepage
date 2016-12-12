@@ -1,6 +1,6 @@
-# rommel-santor
+# Personal Homepage
 
-> Personal Homepage
+> See this in action at http://rommelsantor.com
 
 ## Build Setup
 
