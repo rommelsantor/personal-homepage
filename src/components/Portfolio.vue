@@ -246,7 +246,11 @@ export default {
 
   methods: {
     initPreviewer () {
-      $('html.no-mouse .portfolio-item a').click(function (event) {
+      $('.portfolio-item a').click(function (event) {
+        if (!$('html').hasClass('no-mouse')) {
+          return
+        }
+
         if (!$(this).hasClass('preview')) {
           event.preventDefault()
 

@@ -12,6 +12,21 @@
       margin-bottom: 5rem;
     }
 
+    .atvImg {
+      width: 250px;
+      height: 250px;
+
+      @include phone {
+        width: 150px;
+        height: 150px;
+      }
+
+      @include tablet {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
     .headshot {
       float: left;
 
@@ -21,24 +36,24 @@
         float: none;
       }
 
+      .atvImg {
+        margin: 0 auto 2em;
+      }
+
       img {
         height: auto;
         margin-bottom: 2rem;
+        width: 250px;
+        height: 250px;
 
         @include phone {
           width: 150px;
+          height: 150px;
         }
 
         @include tablet {
           width: 150px;
-        }
-
-        @include desktop {
-          max-width: 250px;
-        }
-
-        @include desktop-large {
-          max-width: 250px;
+          height: 150px;
         }
       }
     }
@@ -119,6 +134,14 @@
     <div class="bio-container">
       <div class="headshot">
         <img src="../assets/headshot.png"/>
+
+        <div v-if="false" class="atvImg">
+          <img src="../assets/headshot.png"/>
+
+          <div class="atvImg-layer" :data-img="getHeadshotLayer(3)"></div>
+          <div class="atvImg-layer" :data-img="getHeadshotLayer(2)"></div>
+          <div class="atvImg-layer" :data-img="getHeadshotLayer(1)"></div>
+        </div>
       </div>
 
       <div class="bio">
@@ -128,27 +151,28 @@
           Despite how uncommon personal computers were when I was a child, I was fascinated
           by the idea of using them to create programs that do things. As I grew up I always
           had the dream of creating things on computers, though I never actually had a computer
-          until I was 18 years old. Once I had it, though, I spent my days and nights teaching
-          myself to bring my dream to life.
+          until I was 18 years old. Once I did, though, I spent my days and nights teaching
+          myself to bring my dream to life, eventually graduating Cum Laude with a B.S. in
+          Computer Science and turning my passion into my career.
         </p>
 
         <h3>Expertise</h3>
 
         <p>
-          I have spent most of my professional career doing what has always been the most fulfilling,
+          I have spent most of my professional career doing what has always been the most fulfilling:
           designing and implementing from scratch large-scale Web software systems, historically
-          built and maintained myself on a stack consisting of Ubuntu, MySQL, PHP, Nginx, and jQuery.
+          built and maintained entirely myself on a stack including Ubuntu, MySQL, PHP, Nginx, and jQuery.
         </p>
         <p>
           In the past few years with the massive paradigm shift in front-end development, I have
-          fallen in love all over again, and because of that passion I have been essentially living
+          been falling in love all over again, and because of that love, I have been essentially living
           on the front-end.
         </p>
 
         <h3>Personal Homepage</h3>
 
         <p>
-          I wrote this personal homepage you're currently reading in its entirety with VueJS v2
+          I wrote this personal homepage you're currently reading in its entirety with VueJS 2
           and bundled with Webpack. The source code is available in this GitHub repository:
 
           <ul>
@@ -196,26 +220,24 @@
 </template>
 
 <script>
-// import $ from 'jquery'
+import atvImg from '../js/atvImg'
+require('../css/atvImg.css')
+
+import $ from 'jquery'
 
 export default {
   name: 'about',
 
-  components: {
-  },
-
   mounted () {
-  },
-
-  data () {
-    return {
-    }
-  },
-
-  computed: {
+    $(document).ready(function () {
+      atvImg()
+    })
   },
 
   methods: {
+    getHeadshotLayer (layer) {
+      return require(`../assets/headshot-${layer}.png`)
+    }
   }
 }
 </script>

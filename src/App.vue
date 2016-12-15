@@ -91,18 +91,34 @@ export default {
     updateState('mouse', false)
 
     let touching = false
+    let mouseEnters = 0
+    let mouseMoves = 0
+    let clicks = 0
     $('body')
       .bind('touchstart.detect', () => { touching = true })
       .bind('touchend.detect', () => { touching = false })
+      .bind('click.detect', () => {
+        if (mouseMoves >= 0 && mouseMoves <= clicks) {
+          $('body').unbind('.detect')
+        }
+      })
+      .bind('mousedown.detect', () => { console.log('mousedown'); --mouseMoves; ++clicks })
+      .bind('mouseenter.detect', (event) => {
+        ++mouseEnters
+        mouseMoves = 0
+      })
       .bind('mousemove.detect', () => {
-        if (!touching) {
+        ++mouseMoves
+
+        if (mouseEnters < mouseMoves && !touching) {
           updateState('mouse', true)
 
-          $('body')
-            .unbind('touchstart.detect')
-            .unbind('touchend.detect')
-            .unbind('mousemove.detect')
+          $('body').unbind('.detect')
+        } else if (clicks === 0 && mouseEnters === 1 && mouseMoves === 0) {
+          $('body').unbind('.detect')
         }
+
+        clicks > 0 && --clicks
       })
   },
 
