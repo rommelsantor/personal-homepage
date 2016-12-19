@@ -198,6 +198,9 @@
             <li>
               <a href="http://codepen.io/rommelsantor" target="_blank">CodePen</a>
             </li>
+            <li>
+              <a href="http://stackoverflow.com/users/2316774/rommel-santor" target="_blank">StackOverflow</a>
+            </li>
           </ul>
         </p>
 
